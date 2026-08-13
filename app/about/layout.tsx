@@ -7,10 +7,12 @@ export default function AboutLayout({
   children: React.ReactNode;
 }) {
   return (
-    <main>
-      {children}
-      {/* Bottom Logo */}
-      <div className="pt-8 flex justify-center">
+   
+    <main className="flex-1 flex flex-col min-h-full justify-between">
+     
+      <div className="flex-1 flex flex-col">{children}</div>
+    
+      <div className="py-8 flex justify-center mt-auto">
         <Image
           src={TinyLibraryLogo}
           alt="Tiny Library Logo"

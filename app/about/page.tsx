@@ -5,7 +5,7 @@ import TinyLibraryLogo from "@/public/tinylibrary-logo.webp";
 import { Layers, Globe, Bookmark } from "lucide-react";
 export default function AboutPage() {
   return (
-    <main>
+    <>
       {/* 1. Hero Section */}
       <section className="px-6 py-8 md:py-16 mx-auto max-w-7xl">
         {/* top(desktop): Hro image and description */}
@@ -41,15 +41,13 @@ export default function AboutPage() {
         <div className="mt-8 md:mt-12 flex justify-center">
           <Button
             className="inline-block px-7 py-3 text-sm font-medium tracking-widest uppercase transition-colors duration-200"
-            href="/contact"
+            href="/about/contact"
           >
             CONTACT US
           </Button>
         </div>
       </section>
-
       <hr className="border-gray-200" aria-hidden="true" />
-
       <section
         className="py-10 md:py-16 px-6 max-w-7xl mx-auto"
         aria-labelledby="key-features"
@@ -102,9 +100,7 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
-
       <hr className="border-gray-200" aria-hidden="true" />
-
       <section className="px-6 py-12 md:py-20 max-w-3xl mx-auto text-left space-y-8">
         <div className="prose max-w-none">
           <h2 className="text-2xl mb-4 md:text-3xl font-semibold font-heading text-foreground">
@@ -129,6 +125,6 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
-    </main>
+    </>
   );
 }
