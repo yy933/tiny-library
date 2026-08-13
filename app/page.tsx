@@ -34,6 +34,7 @@ export default function Home() {
           <Image
             src={HeroImageSquare}
             fill
+            sizes="100vw"
             className="object-cover object-center"
             alt="Hero Image"
             priority

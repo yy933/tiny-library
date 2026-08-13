@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import type { RootLayoutProps } from "@/app/types";
+
 import { Raleway, Nunito } from "next/font/google";
 import "./globals.css";
+
 import Navbar from "@/components/Navbar";
 
 const raleway = Raleway({
