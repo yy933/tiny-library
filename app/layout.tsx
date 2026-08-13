@@ -17,8 +17,26 @@ const nunito = Nunito({
 });
 
 export const metadata: Metadata = {
-  title: "Tiny Library",
-  description: "Tiny Library is a web application allows users to browse books and books details.",
+  title: {
+    default: "Tiny Library",
+    template: "%s | Tiny Library",
+  },
+
+  description:
+    "Tiny Library is a web application that allows users to browse books and book details.",
+
+  icons: {
+    icon: "/favicon.ico",
+  },
+
+  openGraph: {
+    title: "Tiny Library",
+    description: "Browse books and book details easily.",
+    url: "https://your-domain.com",
+    siteName: "Tiny Library",
+    locale: "en_US",
+    type: "website",
+  },
 };
 
 export default function RootLayout({ children }: RootLayoutProps) {
