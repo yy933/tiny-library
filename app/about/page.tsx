@@ -128,14 +128,6 @@ export default function AboutPage() {
             </p>
           </div>
         </div>
-        {/* Bottom Logo */}
-        <div className="pt-8 flex justify-center">
-          <Image
-            src={TinyLibraryLogo}
-            alt="Tiny Library Logo"
-            className="w-[120px] md:w-[150px] h-auto opacity-80"
-          />
-        </div>
       </section>
     </main>
   );
