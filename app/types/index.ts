@@ -3,6 +3,32 @@ export type RootLayoutProps = Readonly<{
   children: React.ReactNode;
 }>;
 
+// Data Types
+export type Book = {
+  id: number;
+  name: string;
+  author: string;
+  likes: number;
+  image: string;
+  category: string;
+  dateAdded: string;
+};
+
+// Components Types
+export type BookCardProps = {
+  book: Book;
+};
+
+export type BooksGridProps = {
+  title: string;
+  books: Book[];
+};
+
+export type PillProps = {
+  children: ReactNode;
+  className?: string;
+};
+
 export type NavLinkProps = {
   href: string;
   children: ReactNode;
