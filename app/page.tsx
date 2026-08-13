@@ -1,69 +1,55 @@
+import Link from "next/link";
 import Image from "next/image";
+import HeroImage from "@/public/hero-image.webp";
+import HeroImageSquare from "@/public/hero-image-square.webp";
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+    <main className="flex-1 flex flex-col ">
+      <section className="w-full flex flex-1 flex-col  justify-between items-center gap-8 pt-12 mx-auto md:flex-row max-w-7xl">
+        <div className="flex-1 px-6 md:px-12 space-y-5 md:space-y-6 max-w-xl">
+          <p className="text-xs md:text-sm font-semibold tracking-widest text-gray-500 uppercase">
+            BROWSE BOOKS
           </p>
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold font-heading leading-tight text-gray-900">
+            Find your next favourite book
+          </h1>
+          <p className="text-base sm:text-lg text-gray-600 leading-relaxed">
+            Tiny Library is a cosy corner of the web where readers discover
+            hand-picked titles across every genre, from timeless classics to
+            hidden indie gems.
+          </p>
+
+          <div className="pt-2">
+            <Link
+              href="/books"
+              className="inline-block px-7 py-3 text-sm font-medium tracking-widest text-black uppercase transition-colors duration-200 border border-black hover:bg-black hover:text-white"
+            >
+              BROWSE BOOKS
+            </Link>
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+        {/* Mobile hero image */}
+        <div className="relative w-full flex-1 min-h-[350px] md:hidden mt-4 [mask-image:linear-gradient(to_bottom,transparent_0%,rgba(0,0,0,0.4)_15%,black_45%)] [-webkit-mask-image:linear-gradient(to_bottom,transparent_0%,rgba(0,0,0,0.4)_15%,black_45%)]">
+          <Image
+            src={HeroImageSquare}
+            fill
+            className="object-cover object-center"
+            alt="Hero Image"
+            priority
+          />
         </div>
-      </main>
-    </div>
+
+        {/* Desktop hero image */}
+        <div className="hidden md:flex flex-1 justify-center items-center px-6">
+          <Image
+            src={HeroImage}
+            className="w-[420px] h-auto object-contain"
+            alt="Hero Image"
+            priority
+          />
+        </div>
+      </section>
+    </main>
   );
 }

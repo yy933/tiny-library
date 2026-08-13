@@ -60,7 +60,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
       lang="en"
       className={`${raleway.variable} ${nunito.variable} h-full antialiased`}
     >
-      <body>
+      <body className="flex flex-col h-full">
         <Navbar />
         {children}
       </body>
