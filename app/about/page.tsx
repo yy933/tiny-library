@@ -34,17 +34,16 @@ export default function AboutPage() {
               endless lists. Every title here is chosen with care, not
               algorithms.
             </p>
+            {/* contact button */}
+            <div className="mt-8 md:mt-12 flex justify-center md:justify-start">
+              <Button
+                className="inline-block px-7 py-3 text-sm font-medium tracking-widest uppercase transition-colors duration-200"
+                href="/about/contact"
+              >
+                CONTACT US
+              </Button>
+            </div>
           </div>
-        </div>
-
-        {/* bottom(desktop): contact button */}
-        <div className="mt-8 md:mt-12 flex justify-center">
-          <Button
-            className="inline-block px-7 py-3 text-sm font-medium tracking-widest uppercase transition-colors duration-200"
-            href="/about/contact"
-          >
-            CONTACT US
-          </Button>
         </div>
       </section>
       <hr className="border-gray-200" aria-hidden="true" />
