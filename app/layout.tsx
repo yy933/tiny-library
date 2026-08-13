@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import type { RootLayoutProps } from "@/app/types";
 import { Raleway, Nunito } from "next/font/google";
 import "./globals.css";
+import Navbar from "@/components/Navbar";
 
 const raleway = Raleway({
   variable: "--font-raleway",
@@ -45,7 +46,10 @@ export default function RootLayout({ children }: RootLayoutProps) {
       lang="en"
       className={`${raleway.variable} ${nunito.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body >
+        <Navbar />
+        {children}
+      </body>
     </html>
   );
 }
