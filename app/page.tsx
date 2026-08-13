@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import HeroImage from "@/public/hero-image.webp";
 import HeroImageSquare from "@/public/hero-image-square.webp";
+import Button from "@/components/Button";
 
 export default function Home() {
   return (
@@ -20,14 +21,7 @@ export default function Home() {
             hidden indie gems.
           </p>
 
-          <div className="pt-2">
-            <Link
-              href="/books"
-              className="inline-block px-7 py-3 text-sm font-medium tracking-widest text-black uppercase transition-colors duration-200 border border-black hover:bg-black hover:text-white"
-            >
-              BROWSE BOOKS
-            </Link>
-          </div>
+          <Button href="/books">BROWSE BOOKS</Button>
         </div>
         {/* Mobile hero image */}
         <div className="relative w-full flex-1 min-h-[350px] md:hidden mt-4 [mask-image:linear-gradient(to_bottom,transparent_0%,rgba(0,0,0,0.4)_15%,black_45%)] [-webkit-mask-image:linear-gradient(to_bottom,transparent_0%,rgba(0,0,0,0.4)_15%,black_45%)]">
