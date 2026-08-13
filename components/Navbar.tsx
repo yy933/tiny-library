@@ -7,6 +7,7 @@ import { usePathname } from "next/navigation";
 
 export default function Navbar() {
   const pathname = usePathname();
+  const isContactPage = pathname === "/about/contact";
   return (
     <header className="w-full bg-white">
       <nav className="flex justify-between items-center px-6 py-4">
@@ -20,28 +21,22 @@ export default function Navbar() {
           />
         </Link>
         <ul className="flex items-center gap-2.5">
-          <NavLink
-            className="text-sm uppercase cursor-pointer"
-            href="/"
-            isActive={pathname === "/"}
-          >
+          <NavLink href="/" isActive={pathname === "/"}>
             Home
           </NavLink>
-          <NavLink
-            className="text-sm uppercase cursor-pointer"
-            href="/books"
-            isActive={pathname === "/books"}
-          >
+          <NavLink href="/books" isActive={pathname === "/books"}>
             Books
           </NavLink>
 
-          <NavLink
-            className="text-sm uppercase cursor-pointer"
-            href="/about"
-            isActive={pathname === "/about"}
-          >
-            About
-          </NavLink>
+          {isContactPage ? (
+            <NavLink href="/about/contact" isActive={true}>
+              About: Contact
+            </NavLink>
+          ) : (
+            <NavLink href="/about" isActive={pathname === "/about"}>
+              About
+            </NavLink>
+          )}
         </ul>
       </nav>
     </header>
