@@ -6,7 +6,7 @@ export default function BooksPage() {
 
   return (
     <>
-      <Form action="/3d-models" className="w-full px-4 md:max-w-xl">
+      <Form action="/books" className="w-full px-4 md:max-w-xl">
         <input
           type="search"
           name="q"

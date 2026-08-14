@@ -47,7 +47,7 @@ export default function BookCard({ book }: BookCardProps) {
             aria-label={`${book.likes} likes`}
           >
             <FaRegHeart
-              className="w-5 h-5 mr-1 text-gray-400"
+              className="w-5 h-5 mr-1 text-gray-400 cursor-pointer"
               aria-hidden="true"
             />
             <span>{book.likes}</span>

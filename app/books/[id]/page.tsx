@@ -9,6 +9,7 @@ import placeholderImg from "@/public/placeholder-img.jpg";
 import { FaRegHeart } from "react-icons/fa6";
 import Pill from "@/components/Pill";
 import { getBookById } from "@/lib/utils";
+
 export default async function BookDetailPage({
   params,
 }: {
@@ -19,18 +20,18 @@ export default async function BookDetailPage({
   const { id } = await params;
   const book = getBookById(id);
   return (
-    <div className="container max-w-6xl px-4 py-8 mx-auto">
-      <article className="grid grid-cols-1 gap-8 lg:grid-cols-2">
+    <div className="container my-auto max-w-6xl px-4 py-8 mx-auto">
+      <article className="grid grid-cols-1 gap-8 sm:grid-cols-2">
         {/* Image Section */}
         <figure className="relative overflow-hidden rounded-lg shadow-lg aspect-square">
           <Image
             src={placeholderImg}
-            alt={`3D book of ${book.name}`}
+            alt={`Book name: ${book.name}`}
             fill
-            sizes="(max-width: 1024px) 100vw, 50vw"
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
             priority
             placeholder="blur"
-            className="object-cover"
+            className="object-cover object-center"
           />
         </figure>
 
@@ -41,14 +42,19 @@ export default async function BookDetailPage({
             role="status"
             aria-label="Likes count"
           >
-            <FaRegHeart className="w-5 h-5 mr-2" aria-hidden="true" />
+            <FaRegHeart
+              className="w-5 h-5 mr-2 cursor-pointer"
+              aria-hidden="true"
+            />
             <span className="font-light" aria-label={`${book.likes} likes`}>
               {book.likes}
             </span>
           </div>
           <h1 className="mb-6 text-4xl font-bold">{book.name}</h1>
 
-          <Pill className="mb-6 w-fit">{book.category}</Pill>
+          <Pill className="mb-6 w-fit cursor-pointer hover:bg-gray-700 hover:text-white transition-colors">
+            {book.category}
+          </Pill>
 
           <div className="mb-6 prose prose-lg max-w-none">
             <span className="text-gray-800 text-lg font-semibold line-clamp-2 min-h-[2.5rem] leading-[1.25rem]">
