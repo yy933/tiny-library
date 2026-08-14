@@ -44,12 +44,14 @@ const getAllCategories = (): Category[] => {
   }));
 };
 
-const getCategoryBySlug = (slug:string): Category =>{
-  const category = getAllCategories().find((category) => category.slug === slug);
+const getCategoryBySlug = (slug: string = ""): Category => {
+  const category = getAllCategories().find(
+    (category) => category.slug === slug,
+  );
   if (!category) {
     throw new Error(`Category ${slug} is not found`);
   }
-  return category
-}
+  return category;
+};
 
 export { getBooks, getBookById, getAllCategories, getCategoryBySlug };

@@ -41,3 +41,10 @@ export type NavLinkProps = {
   isActive: boolean;
   className?: string;
 };
+
+// Page Types
+export type CategoryPageProps = {
+  params: Promise<{
+    categoryName: string;
+  }>;
+};
