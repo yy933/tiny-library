@@ -6,10 +6,20 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
-export function getBooks({
-  category,
-}: { category?: string } = {}): Book[] {
+const getBooks = ({ category }: { category?: string } = {}): Book[] => {
   if (!category) return BooksData;
 
   return BooksData.filter((book: Book) => book.category === category);
-}
+};
+
+const getBookById = (id: string | number): Book => {
+  const foundBook = BooksData.find(
+    (book: Book) => book.id.toString() === id.toString(),
+  );
+  if (!foundBook) {
+    throw new Error(`Book with id ${id} not found`);
+  }
+  return foundBook;
+};
+
+export { getBooks, getBookById };

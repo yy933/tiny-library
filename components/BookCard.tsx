@@ -2,7 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { FaRegHeart } from "react-icons/fa6";
 import Pill from "./Pill";
-import { BookCardProps } from "@/app/types";
+import type { BookCardProps } from "@/app/types";
 import placeholderImg from "@/public/placeholder-img.jpg";
 
 export default function BookCard({ book }: BookCardProps) {
