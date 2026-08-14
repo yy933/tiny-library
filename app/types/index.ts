@@ -48,3 +48,14 @@ export type CategoryPageProps = {
     categoryName: string;
   }>;
 };
+
+export interface BookPageProps {
+  searchParams: Promise<{
+    q?: string;
+  }>;
+}
+
+export interface CategoryLayoutProps {
+  children: React.ReactNode;
+  params: Promise<{ q?: string }>;
+}

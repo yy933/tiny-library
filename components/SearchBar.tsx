@@ -2,17 +2,14 @@ import Form from "next/form";
 interface SearchBarProps {
   action?: string;
   defaultValue?: string;
-  category?:string;
 }
 
 export default async function SearchBar({
-  action = "/books", 
+  action = "/books",
   defaultValue = "",
-  category=""
 }: SearchBarProps) {
   return (
     <Form action={action} className="w-full px-4 md:max-w-xl">
-      {category && <input type="hidden" name="category" value={category} />}
       <input
         type="search"
         name="q"

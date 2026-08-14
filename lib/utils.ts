@@ -6,10 +6,19 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
-const getBooks = ({ category }: { category?: string } = {}): Book[] => {
-  if (!category) return BooksData;
+interface GetBooksOptions {
+  category?: string;
+}
 
-  return BooksData.filter((book: Book) => book.category === category);
+const getBooks = ({ category }: GetBooksOptions = {}): Book[] => {
+  let filteredBooks = BooksData;
+  if (category) {
+    filteredBooks = filteredBooks.filter(
+      (book: Book) => book.category.toLowerCase() === category.toLowerCase(),
+    );
+  }
+
+  return filteredBooks;
 };
 
 const getBookById = (id: string | number): Book => {
