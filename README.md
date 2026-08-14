@@ -1,36 +1,86 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Tiny Library
 
-## Getting Started
+Tiny Library is a small Next.js app that demonstrates a searchable collection of books with categories and simple UI components.
 
-First, run the development server:
+## Features
+
+- Browse books by category
+- Search books by name, author, or category
+- Simple, component-driven UI using the `components/` folder
+- Static JSON data stored in `app/data/`
+
+## Tech Stack
+
+- Next.js 16.3.0 (App Router)
+- React 19.2.8
+- TypeScript (>=5)
+- Tailwind CSS (v4+)
+- `clsx` and `tailwind-merge` for composing utility classes
+- Misc UI libraries: `lucide-react`, `react-icons`, `shadcn`
+
+## Key Features (detailed)
+
+- Client-side search: lightweight, debounce-free search across name, author, and category. See [lib/utils.ts](lib/utils.ts).
+- Category routes: dynamic routing for category and book detail pages (under [app/](app)).
+- Reusable components: `BookCard`, `BooksGrid`, `SearchBar`, etc., found in [components/](components) for quick customization.
+- Static JSON-backed data: data is stored locally in [app/data/books.json](app/data/books.json) and [app/data/categories.json](app/data/categories.json) for simplicity and portability.
+- Minimal footprint: no server-side DB required — ideal for demos and tutorials.
+
+## Project Structure (key files)
+
+- [app/](app) — application routes and pages (page.tsx files use the App Router)
+- [components/](components) — shared React components (`BookCard.tsx`, `BooksGrid.tsx`, `Navbar.tsx`)
+- [lib/utils.ts](lib/utils.ts) — helpers for filtering, finding books and categories
+- [app/data/books.json](app/data/books.json) — primary book data
+- [app/data/categories.json](app/data/categories.json) — category metadata (optional)
+- [public/](public) — static assets and favicons
+
+## Getting Started (development)
+
+Prerequisites
+
+- Node.js (recommended v18+)
+- npm (bundled with Node) — or use pnpm/yarn if preferred
+
+Install dependencies and run locally:
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open http://localhost:3000 in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Available scripts (from `package.json`)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- `npm run dev` — starts Next.js in development mode
+- `npm run build` — builds the app for production
+- `npm run start` — starts the production server after build
+- `npm run lint` — run ESLint
 
-## Learn More
+Build for production:
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+npm run build
+npm run start
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Data & Content
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+To add or edit books, update `app/data/books.json`. Categories are derived automatically from book entries by `getAllCategories()` in [lib/utils.ts](lib/utils.ts).
 
-## Deploy on Vercel
+When adding books, ensure each item includes required fields such as `id`, `name`, `author`, `category`, and `cover` (if used by UI components).
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Development Notes
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Search and filtering logic: [lib/utils.ts](lib/utils.ts)
+- UI components: [components/](components)
+- Tailwind configuration: `postcss.config.mjs` and `tailwind.config` (if present)
+- ESLint is configured via `eslint.config.mjs`
+
+
+
+
+
+
+
