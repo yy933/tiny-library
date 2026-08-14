@@ -8,17 +8,26 @@ export function cn(...inputs: ClassValue[]) {
 
 interface GetBooksOptions {
   category?: string;
+  q?: string;
 }
 
-const getBooks = ({ category }: GetBooksOptions = {}): Book[] => {
-  let filteredBooks = BooksData;
+const getBooks = ({ category, q }: GetBooksOptions = {}): Book[] => {
+  if (q && q.trim() !== "") {
+    const query = q.trim().toLowerCase();
+    return BooksData.filter(
+      (book: Book) =>
+        book.name.toLowerCase().includes(query) ||
+        book.author.toLowerCase().includes(query) ||
+        book.category.toLowerCase().includes(query),
+    );
+  }
   if (category) {
-    filteredBooks = filteredBooks.filter(
+    return BooksData.filter(
       (book: Book) => book.category.toLowerCase() === category.toLowerCase(),
     );
   }
 
-  return filteredBooks;
+  return BooksData;
 };
 
 const getBookById = (id: string | number): Book => {
