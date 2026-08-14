@@ -55,7 +55,4 @@ export interface BookPageProps {
   }>;
 }
 
-export interface CategoryLayoutProps {
-  children: React.ReactNode;
-  params: Promise<{ q?: string }>;
-}
+

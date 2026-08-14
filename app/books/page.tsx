@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import BooksGrid from "@/components/BooksGrid";
 import SearchBar from "@/components/SearchBar";
 import { getBooks } from "@/lib/utils";
@@ -8,7 +9,13 @@ export default async function BooksPage({ searchParams }: BookPageProps) {
 
   return (
     <>
-      <SearchBar action="/books" defaultValue={q} />
+      <Suspense
+        fallback={
+          <div className="w-full h-12 max-w-xl mx-auto bg-muted rounded-full animate-pulse" />
+        }
+      >
+        <SearchBar action="/books" />
+      </Suspense>
       {books.length === 0 ? (
         <div className="text-center py-12 text-muted-foreground">
           <p className="text-lg">No books found for "{q}".</p>
