@@ -38,7 +38,9 @@ export default function BookCard({ book }: BookCardProps) {
             {book.author}
           </span>
           <div className="mt-2">
-            <Pill>{book.category}</Pill>
+            <Pill className="hover:bg-gray-700 hover:text-white transition-colors">
+              {book.category}
+            </Pill>
           </div>
           <div
             className="flex items-center mt-2 text-gray-600"
