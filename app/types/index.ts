@@ -14,6 +14,12 @@ export type Book = {
   dateAdded: string;
 };
 
+export type Category = {
+  id: number;
+  slug: string;
+  label: string;
+};
+
 // Components Types
 export type BookCardProps = {
   book: Book;
