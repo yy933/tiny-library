@@ -30,7 +30,7 @@ function formatLabel(slug: string): string {
     .join("-");
 }
 
-const getCategories = (): Category[] => {
+const getAllCategories = (): Category[] => {
   // 1. get all unique categories by Set and Array.from
   const uniqueCategories = Array.from(
     new Set(BooksData.map((book) => book.category)),
@@ -44,4 +44,12 @@ const getCategories = (): Category[] => {
   }));
 };
 
-export { getBooks, getBookById, getCategories };
+const getCategoryBySlug = (slug:string): Category =>{
+  const category = getAllCategories().find((category) => category.slug === slug);
+  if (!category) {
+    throw new Error(`Category ${slug} is not found`);
+  }
+  return category
+}
+
+export { getBooks, getBookById, getAllCategories, getCategoryBySlug };
