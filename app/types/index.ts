@@ -43,11 +43,14 @@ export type NavLinkProps = {
 };
 
 // Page Types
-export type CategoryPageProps = {
+export interface CategoryPageProps {
   params: Promise<{
     categoryName: string;
   }>;
-};
+  searchParams: Promise<{
+    q?: string;
+  }>;
+}
 
 export interface BookPageProps {
   searchParams: Promise<{
