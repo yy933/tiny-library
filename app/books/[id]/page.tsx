@@ -6,7 +6,7 @@ import type { Metadata } from "next";
 // };
 import Image from "next/image";
 import placeholderImg from "@/public/placeholder-img.jpg";
-import { FaRegHeart } from "react-icons/fa6";
+import { FaHeart } from "react-icons/fa6";
 import Pill from "@/components/Pill";
 import { getBookById } from "@/lib/utils";
 
@@ -42,8 +42,8 @@ export default async function BookDetailPage({
             role="status"
             aria-label="Likes count"
           >
-            <FaRegHeart
-              className="w-5 h-5 mr-2 cursor-pointer"
+            <FaHeart
+              className="w-5 h-5 mr-2 cursor-pointer hover:text-red-600"
               aria-hidden="true"
             />
             <span className="font-light" aria-label={`${book.likes} likes`}>

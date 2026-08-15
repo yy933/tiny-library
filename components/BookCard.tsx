@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { FaRegHeart } from "react-icons/fa6";
+import { FaHeart } from "react-icons/fa6";
 import Pill from "./Pill";
 import type { BookCardProps } from "@/app/types";
 import placeholderImg from "@/public/placeholder-img.jpg";
@@ -46,8 +46,8 @@ export default function BookCard({ book }: BookCardProps) {
             className="flex items-center mt-2 text-gray-600"
             aria-label={`${book.likes} likes`}
           >
-            <FaRegHeart
-              className="w-5 h-5 mr-1 text-gray-400 cursor-pointer"
+            <FaHeart
+              className="w-5 h-5 mr-1 text-gray-400 cursor-pointer hover:text-red-600"
               aria-hidden="true"
             />
             <span>{book.likes}</span>
