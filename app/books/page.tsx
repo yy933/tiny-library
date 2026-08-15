@@ -1,8 +1,18 @@
 import { Suspense } from "react";
+import type { Metadata } from "next";
 import BooksGrid from "@/components/BooksGrid";
 import SearchBar from "@/components/SearchBar";
 import { getBooks } from "@/lib/utils";
 import type { BookPageProps } from "@/app/types";
+
+export const metadata: Metadata = {
+  title: "All Books", 
+  description: "Browse our entire collection of books at Tiny Library.",
+  openGraph: {
+    title: "All Books | Tiny Library",
+    description: "Browse our entire collection of books at Tiny Library.",
+  },
+};
 export default async function BooksPage({ searchParams }: BookPageProps) {
   const { q } = (await searchParams) ?? {};
   const books = getBooks({ q });
